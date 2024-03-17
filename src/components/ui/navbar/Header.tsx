@@ -8,18 +8,8 @@ import { useState, useEffect, Fragment, memo } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-const dropdown1Items = [
-  { label: 'Account settings', link: '/' },
-  { label: 'Sign out', link: '/' },
-]
-const dropdown2Items = [
-  { label: 'Support', link: '/' },
-  { label: 'License', link: '/' },
-]
-const dropdown3Items = [
-  { label: 'raptilian', link: '/' },
-  { label: 'License', link: '/' },
-]
+import dropdownItems from './dropdownItems'
+import MobileMenu from './MobileMenu'
 
 interface DropdwonMeduProps {
   name: string
@@ -96,13 +86,13 @@ const Menues = memo(function Menues() {
   const [isOpen3, setIsOpen3] = useState<boolean>(false)
 
   return (
-    <ul className="flex grow justify-end flex-wrap items-center">
+    <ul className="hidden md:flex grow justify-end flex-wrap items-center">
       <li>
         <DropdownMenu
           name="menu1"
           isOpen={isOpen1}
           setIsOpen={setIsOpen1}
-          items={dropdown1Items}
+          items={dropdownItems[0]}
         />
       </li>
       <li>
@@ -110,7 +100,7 @@ const Menues = memo(function Menues() {
           name="menu2"
           isOpen={isOpen2}
           setIsOpen={setIsOpen2}
-          items={dropdown2Items}
+          items={dropdownItems[1]}
         />
       </li>
       <li>
@@ -118,7 +108,7 @@ const Menues = memo(function Menues() {
           name="menu3"
           isOpen={isOpen3}
           setIsOpen={setIsOpen3}
-          items={dropdown3Items}
+          items={dropdownItems[2]}
         />
       </li>
     </ul>
@@ -159,6 +149,7 @@ export default function Header() {
             </Link>
           </div>
           <Menues />
+          <MobileMenu />
         </div>
       </div>
     </header>

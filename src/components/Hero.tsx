@@ -11,7 +11,7 @@ export default function Hero() {
       </div>
 
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
-        <div className="pt-48 pb-12 md:pt-64 md:pb-80">
+        <div className="pt-48 pb-12 md:pt-64 md:pb-80 flex flex-col md:flex-row items-center justify-between">
           <div className="text-center pb-12 md:pb-16">
             <h1 className="text-5xl md:text-6xl font-extrabold mb-6 flex flex-col items-center md:items-start">
               <span>Contents About</span>
@@ -33,6 +33,18 @@ export default function Hero() {
                 </a>
               </div>
             </div>
+          </div>
+          <div>
+            <video
+              width="320"
+              height="240"
+              autoPlay
+              muted
+              loop
+              className="rounded-lg"
+            >
+              <source src="/videos/raptil.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
