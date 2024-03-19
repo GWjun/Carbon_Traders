@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+import Example from '#components/Example'
 import Feature from '#components/Feature'
 import Hero from '#components/Hero'
 
@@ -22,6 +23,7 @@ export default function Page() {
     <div>
       <Hero />
       <Feature />
+      <Example />
     </div>
   )
 }

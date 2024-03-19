@@ -8,15 +8,15 @@ import AutoVideo from '../../public/videos/AutoVideo'
 export default function Hero() {
   return (
     <section className="relative">
-      <div className="absolute z-[-1]" aria-hidden="true">
+      <div className="absolute  h-full z-[-1]" aria-hidden="true">
         <img
-          className="h-[1389px] object-cover object-right"
+          className="h-full object-cover object-right"
           src="/images/earth.svg"
           alt="landing"
         />
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 flex flex-col items-center">
+      <div className="max-w-[1600px] pb-14 md:pb-28 mx-auto px-4 sm:px-6">
         <div className="pt-48 pb-12 md:pt-64 md:pb-60 w-full flex flex-col md:flex-row items-center justify-between">
           <div className="text-center pb-24 md:pb-0">
             <h1
@@ -52,15 +52,16 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ delay: 0.1 }}
             >
               <div className="mb-12 md:mb-0">
-                <AutoVideo src="/videos/aa.mp4" width={500} />
+                <AutoVideo src="/videos/demo.mp4" width={500} />
               </div>
             </m.div>
           </LazyMotion>
         </div>
-        <div
-          className=" max-w-4xl text-center text-2xl text-gray-700 md:text-4xl font-bold mb-28"
+        <p
+          className=" max-w-4xl text-center mx-auto text-2xl text-gray-700 md:text-3xl font-bold"
           data-aos="zoom-y-out"
           data-aos-delay="300"
         >
@@ -70,7 +71,7 @@ export default function Hero() {
             carbon neutrality
           </span>{' '}
           carbon neutrality while positively impacting the planet.
-        </div>
+        </p>
       </div>
     </section>
   )
