@@ -16,7 +16,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="max-w-[1600px] pb-14 md:pb-28 mx-auto px-4 sm:px-6">
+      <div className="max-w-[1600px] pb-24 md:pb-48 mx-auto px-4 sm:px-6">
         <div className="pt-48 pb-12 md:pt-64 md:pb-60 w-full flex flex-col md:flex-row items-center justify-between">
           <div className="text-center pb-24 md:pb-0">
             <h1

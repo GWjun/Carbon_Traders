@@ -5,7 +5,7 @@ export default function Feature() {
     <section className="relative">
       <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2" />
 
-      <div className="max-w-7xl mx-auto pt-14 md:pt-28 mb-7 md:mb-24 flex justify-center lg:justify-between items-center">
+      <div className="max-w-7xl mx-auto pt-24 md:pt-48 mb-24 md:mb-48 flex justify-center lg:justify-between items-center">
         <div className="hidden lg:flex" data-aos="fade-right">
           <AutoVideo src="/videos/raptil.mp4" width={420} />
         </div>
@@ -36,7 +36,7 @@ export default function Feature() {
               rewarding.
             </p>
           </div>
-          <div className="mb-6">
+          <div>
             <h4 className="text-2xl font-bold font-serif">
               Community Engagement
             </h4>

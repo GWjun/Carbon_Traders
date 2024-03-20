@@ -8,15 +8,13 @@ import 'aos/dist/aos.css'
 import Example from '#components/Example'
 import Feature from '#components/Feature'
 import Hero from '#components/Hero'
+import Method from '#components/Method'
 
 export default function Page() {
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     AOS.init({
-      once: true,
-      disable: 'phone',
-      duration: 700,
-      easing: 'ease-out-cubic',
+      duration: 600,
     })
   })
   return (
@@ -24,6 +22,7 @@ export default function Page() {
       <Hero />
       <Feature />
       <Example />
+      <Method />
     </div>
   )
 }

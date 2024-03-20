@@ -9,7 +9,7 @@ export default function Example() {
       />
       <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2" />
 
-      <div className="max-w-7xl mx-auto pt-14 md:pt-28 pb-14 md:pb-28 flex flex-col md:flex-row justify-between">
+      <div className="max-w-7xl mx-auto pt-24 md:pt-48 pb-24 md:pb-48 flex flex-col md:flex-row justify-between">
         <div
           className="bg-gray-300 rounded-xl p-5 mb-10 md:mb-0 mx-4 flex flex-col items-center shadow-xl"
           data-aos="zoom-in-up"
