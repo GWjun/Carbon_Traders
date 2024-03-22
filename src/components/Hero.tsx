@@ -1,11 +1,11 @@
-'use client'
 /* eslint-disable @next/next/no-img-element */
+'use client'
 
-import { LazyMotion, domAnimation, m } from 'framer-motion'
-
-import AutoVideo from '../../public/videos/AutoVideo'
+import useVideoLoader from '#store/client/useVideoLoader'
 
 export default function Hero() {
+  const { videoUrl, loading } = useVideoLoader('/videos/demo.mp4')
+
   return (
     <section className="relative">
       <div className="absolute  h-full z-[-1]" aria-hidden="true">
@@ -47,18 +47,20 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <LazyMotion features={domAnimation}>
-            <m.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ delay: 0.1 }}
-            >
-              <div className="mb-12 md:mb-0">
-                <AutoVideo src="/videos/demo.mp4" width={500} />
-              </div>
-            </m.div>
-          </LazyMotion>
+
+          <div
+            className="mb-12 md:mb-0"
+            data-aos="zoom-y-out"
+            data-aos-delay="150"
+          >
+            {loading ? (
+              <div className="w-[500px] h-[280px] bg-gray-300 bg-opacity-70 animate-pulse rounded-2xl" />
+            ) : (
+              <video width={500} autoPlay muted loop className="rounded-lg">
+                <source src={videoUrl || ''} type="video/mp4" />
+              </video>
+            )}
+          </div>
         </div>
         <p
           className=" max-w-4xl text-center mx-auto text-2xl text-gray-700 md:text-3xl font-bold"

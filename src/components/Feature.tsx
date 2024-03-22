@@ -1,13 +1,21 @@
-import AutoVideo from '../../public/videos/AutoVideo'
+import useVideoLoader from '#store/client/useVideoLoader'
 
 export default function Feature() {
+  const { videoUrl, loading } = useVideoLoader('/videos/raptil.mp4')
+
   return (
     <section className="relative">
       <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto pt-24 md:pt-48 mb-24 md:mb-48 flex justify-center lg:justify-between items-center">
         <div className="hidden lg:flex" data-aos="fade-right">
-          <AutoVideo src="/videos/raptil.mp4" width={420} />
+          {loading ? (
+            <div className="w-[500px] h-[280px] bg-gray-300 bg-opacity-70 animate-pulse rounded-2xl" />
+          ) : (
+            <video width={500} autoPlay muted loop className="rounded-lg">
+              <source src={videoUrl || ''} type="video/mp4" />
+            </video>
+          )}
         </div>
         <div
           className="max-w-2xl ml-4 flex flex-col items-center"

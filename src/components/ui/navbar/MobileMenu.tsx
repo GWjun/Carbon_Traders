@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-import { useState, memo } from 'react'
+import { useState, memo, useEffect } from 'react'
 
 import { Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/20/solid'
@@ -32,6 +32,16 @@ const Menu = memo(function Menu({ name, idx }: { name: string; idx: number }) {
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  useEffect(() => {
+    document.addEventListener('prevemtScroll', () => event?.preventDefault())
+
+    return () => {
+      document.removeEventListener('preventScroll', () =>
+        event?.preventDefault(),
+      )
+    }
+  }, [])
 
   return (
     <div className="flex md:hidden">

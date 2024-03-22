@@ -83,7 +83,7 @@ function Calculation() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
-      className="w-[90%] h-full md:w-full  p-6 bg-lime-300 rounded-3xl shadow-lg flex flex-col md:flex-row items-center justify-between"
+      className="w-[90%] h-full md:w-full  p-6 bg-green-300 rounded-3xl shadow-lg flex flex-col md:flex-row items-center justify-between"
     >
       <div className="text-center max-w-2xl pb-4 md:pb-0">
         Users input their activities that generate carbon emissions, such as
@@ -91,13 +91,7 @@ function Calculation() {
         footprint associated with these activities using verified emission
         factors and data algorithms.
       </div>
-      <Image
-        src="/images/mk1.webp"
-        width={400}
-        height={400}
-        alt="mk1"
-        className="rounded-xl"
-      />
+      <Image src="/images/mk1.webp" width={400} height={400} alt="mk1" />
     </motion.div>
   )
 }
@@ -117,13 +111,7 @@ function Selection() {
         renewable energy initiatives. Each project is carefully vetted to ensure
         its credibility and impact on reducing greenhouse gas emissions.
       </div>
-      <Image
-        src="/images/mk2.jpg"
-        width={250}
-        height={250}
-        alt="mk2"
-        className="rounded-xl"
-      />
+      <Image src="/images/mk2.jpg" width={250} height={250} alt="mk2" />
     </motion.div>
   )
 }
@@ -145,13 +133,7 @@ function Investment() {
         of their contribution and the impact it has made in mitigating climate
         change.
       </div>
-      <Image
-        src="/images/mk3.png"
-        width={250}
-        height={250}
-        alt="mk3"
-        className="rounded-xl"
-      />
+      <Image src="/images/mk3.png" width={250} height={250} alt="mk3" />
     </motion.div>
   )
 }
