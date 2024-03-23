@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react'
 
 import { motion } from 'framer-motion'
 
+import mk1 from '../../public/images/mk1.webp'
+import mk2 from '../../public/images/mk2.jpg'
+import mk3 from '../../public/images/mk3.png'
+
 function MechanismTap() {
   const [tab, setTab] = useState<number>(0)
 
@@ -91,7 +95,14 @@ function Calculation() {
         footprint associated with these activities using verified emission
         factors and data algorithms.
       </div>
-      <Image src="/images/mk1.webp" width={400} height={400} alt="mk1" />
+      <Image
+        src={mk1}
+        width={400}
+        height={400}
+        alt="mk1"
+        placeholder="blur"
+        className="rounded-xl shadow-md"
+      />
     </motion.div>
   )
 }
@@ -111,7 +122,14 @@ function Selection() {
         renewable energy initiatives. Each project is carefully vetted to ensure
         its credibility and impact on reducing greenhouse gas emissions.
       </div>
-      <Image src="/images/mk2.jpg" width={250} height={250} alt="mk2" />
+      <Image
+        src={mk2}
+        width={250}
+        height={250}
+        alt="mk2"
+        placeholder="blur"
+        className="rounded-xl shadow-md"
+      />
     </motion.div>
   )
 }
@@ -133,7 +151,14 @@ function Investment() {
         of their contribution and the impact it has made in mitigating climate
         change.
       </div>
-      <Image src="/images/mk3.png" width={250} height={250} alt="mk3" />
+      <Image
+        src={mk3}
+        width={250}
+        height={250}
+        alt="mk3"
+        placeholder="blur"
+        className="rounded-xl shadow-md"
+      />
     </motion.div>
   )
 }

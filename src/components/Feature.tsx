@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 import useVideoLoader from '#store/client/useVideoLoader'
 
 export default function Feature() {
@@ -10,11 +12,13 @@ export default function Feature() {
       <div className="max-w-7xl mx-auto pt-24 md:pt-48 mb-24 md:mb-48 flex justify-center lg:justify-between items-center">
         <div className="hidden lg:flex" data-aos="fade-right">
           {loading ? (
-            <div className="w-[500px] h-[280px] bg-gray-300 bg-opacity-70 animate-pulse rounded-2xl" />
+            <div className="w-[500px] h-[281px] bg-gray-300 bg-opacity-70 animate-pulse rounded-2xl" />
           ) : (
-            <video width={500} autoPlay muted loop className="rounded-lg">
-              <source src={videoUrl || ''} type="video/mp4" />
-            </video>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <video width={500} autoPlay muted loop className="rounded-lg">
+                <source src={videoUrl || ''} type="video/mp4" />
+              </video>
+            </motion.div>
           )}
         </div>
         <div

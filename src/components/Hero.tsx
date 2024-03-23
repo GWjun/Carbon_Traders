@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
+import { motion } from 'framer-motion'
+
 import useVideoLoader from '#store/client/useVideoLoader'
 
 export default function Hero() {
@@ -54,11 +56,13 @@ export default function Hero() {
             data-aos-delay="150"
           >
             {loading ? (
-              <div className="w-[500px] h-[280px] bg-gray-300 bg-opacity-70 animate-pulse rounded-2xl" />
+              <div className="w-[92vw] md:w-[500px] h-[52vw] md:h-[281px] bg-gray-600 bg-opacity-30 animate-pulse rounded-2xl" />
             ) : (
-              <video width={500} autoPlay muted loop className="rounded-lg">
-                <source src={videoUrl || ''} type="video/mp4" />
-              </video>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                <video width={500} autoPlay muted loop className="rounded-lg">
+                  <source src={videoUrl || ''} type="video/mp4" />
+                </video>
+              </motion.div>
             )}
           </div>
         </div>
