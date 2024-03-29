@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
-import Header from '#components/ui/navbar/Header'
+import Header from '#components/navbar/Header'
 
 export const metadata: Metadata = {
   title: 'Carbon Exchanges',
