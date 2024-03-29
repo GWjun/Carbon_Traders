@@ -3,6 +3,7 @@
 
 import { motion } from 'framer-motion'
 
+import { Skeleton } from '#components/ui/skeleton'
 import useVideoLoader from '#store/client/useVideoLoader'
 
 export default function Hero() {
@@ -10,7 +11,7 @@ export default function Hero() {
 
   return (
     <section className="relative">
-      <div className="absolute  h-full z-[-1]" aria-hidden="true">
+      <div className="absolute h-full z-[-1]" aria-hidden="true">
         <img
           className="h-full object-cover object-right"
           src="/images/earth.svg"
@@ -56,7 +57,7 @@ export default function Hero() {
             data-aos-delay="150"
           >
             {loading ? (
-              <div className="w-[92vw] md:w-[500px] h-[52vw] md:h-[281px] bg-gray-600 bg-opacity-30 animate-pulse rounded-2xl" />
+              <Skeleton className="w-[92vw] md:w-[500px] h-[52vw] md:h-[281px] rounded-2xl" />
             ) : (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 <video width={500} autoPlay muted loop className="rounded-lg">

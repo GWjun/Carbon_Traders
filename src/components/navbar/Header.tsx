@@ -3,115 +3,76 @@
 
 import Link from 'next/link'
 
-import { useState, useEffect, Fragment, memo } from 'react'
+import { useState, useEffect, forwardRef, memo } from 'react'
 
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from '#components/ui/navigation-menu'
+import { cn } from '#utils/utils'
 
 import dropdownItems from './dropdownItems'
 import MobileMenu from './MobileMenu'
 
-interface DropdwonMeduProps {
-  name: string
-  isOpen: boolean
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
-  items: {
-    label: string
-    link: string
-  }[]
-}
-
-const DropdownMenu = memo(function DropdownMenu({
-  name,
-  isOpen,
-  setIsOpen,
-  items,
-}: DropdwonMeduProps) {
-  function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(' ')
-  }
-
+const ListItem = forwardRef<
+  React.ElementRef<'a'>,
+  React.ComponentPropsWithoutRef<'a'>
+>(({ className, title, children, ...props }, ref) => {
   return (
-    <Menu
-      as="div"
-      className="relative inline-block text-lef"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
-    >
-      <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-transparent rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
-        {name}
-        <ChevronDownIcon
-          className="-mr-1 h-5 w-5 text-gray-400"
-          aria-hidden="true"
-        />
-      </Menu.Button>
-      <Transition
-        as={Fragment}
-        show={isOpen}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="py-1">
-            {items.map((item) => (
-              <Menu.Item key={item.label}>
-                {({ active }) => (
-                  <a
-                    href={item.link}
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm',
-                    )}
-                  >
-                    {item.label}
-                  </a>
-                )}
-              </Menu.Item>
-            ))}
-          </div>
-        </Menu.Items>
-      </Transition>
-    </Menu>
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+            className,
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
   )
 })
+ListItem.displayName = 'ListItem'
 
-// Header에서 상태를 분리함으로써 리렌더링 방지
 const Menues = memo(function Menues() {
-  const [isOpen1, setIsOpen1] = useState<boolean>(false)
-  const [isOpen2, setIsOpen2] = useState<boolean>(false)
-  const [isOpen3, setIsOpen3] = useState<boolean>(false)
-
   return (
-    <ul className="hidden md:flex grow justify-end flex-wrap items-center">
-      <li>
-        <DropdownMenu
-          name="menu1"
-          isOpen={isOpen1}
-          setIsOpen={setIsOpen1}
-          items={dropdownItems[0]}
-        />
-      </li>
-      <li>
-        <DropdownMenu
-          name="menu2"
-          isOpen={isOpen2}
-          setIsOpen={setIsOpen2}
-          items={dropdownItems[1]}
-        />
-      </li>
-      <li>
-        <DropdownMenu
-          name="menu3"
-          isOpen={isOpen3}
-          setIsOpen={setIsOpen3}
-          items={dropdownItems[2]}
-        />
-      </li>
-    </ul>
+    <div className="hidden md:flex grow justify-end flex-wrap items-center">
+      <NavigationMenu>
+        <NavigationMenuList>
+          {dropdownItems.map((menu, idx) => (
+            <NavigationMenuItem key={idx}>
+              <NavigationMenuTrigger className="bg-transparent">
+                {menu.title}
+              </NavigationMenuTrigger>
+
+              <NavigationMenuContent>
+                <ul className="gap-3 p-2 w-[580px] flex flex-col">
+                  {menu.items.map((item) => (
+                    <ListItem
+                      key={item.label}
+                      title={item.label}
+                      href={item.link}
+                    >
+                      {item.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          ))}
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
   )
 })
 

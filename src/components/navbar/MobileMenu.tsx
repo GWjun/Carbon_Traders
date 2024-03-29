@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 
 import { useState, memo, useEffect } from 'react'
@@ -9,24 +7,28 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/20/solid'
 
 import dropdownItems from './dropdownItems'
 
-const Menu = memo(function Menu({ name, idx }: { name: string; idx: number }) {
+const Menues = memo(function Menues() {
   return (
-    <li className="mt-10">
-      <button className="text-2xl text-white rounded-lg w-full bg-green-700">
-        {name}
-      </button>
-      <ul className="ml-4 flex flex-col items-center">
-        {dropdownItems[idx].map((it) => (
-          <li key={it.label} className="py-4">
-            <Link href={it.link}>
-              <button className="text-gray-700 hover:scale-110 hover:text-blue-800">
-                {it.label}
-              </button>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </li>
+    <>
+      {dropdownItems.map((menu, idx) => (
+        <li key={idx} className="mt-10">
+          <button className="text-2xl text-white rounded-lg w-full bg-green-700">
+            {menu.title}
+          </button>
+          <ul className="ml-4 flex flex-col items-center">
+            {menu.items.map((item) => (
+              <li key={item.label} className="py-4">
+                <Link href={item.link}>
+                  <button className="text-gray-700 hover:scale-110 hover:text-blue-800">
+                    {item.label}
+                  </button>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </>
   )
 })
 
@@ -72,9 +74,7 @@ export default function MobileMenu() {
           leaveTo="opacity-0"
         >
           <ul className="px-5 py-2">
-            <Menu name="Menu1" idx={0} />
-            <Menu name="Menu2" idx={1} />
-            <Menu name="Menu3" idx={2} />
+            <Menues />
           </ul>
         </Transition>
       </div>

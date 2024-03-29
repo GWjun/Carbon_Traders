@@ -1,12 +1,14 @@
+'use client'
+
 import Image from 'next/image'
 
 import { useEffect, useState } from 'react'
 
 import { motion } from 'framer-motion'
 
-import mk1 from '../../public/images/mk1.webp'
-import mk2 from '../../public/images/mk2.jpg'
-import mk3 from '../../public/images/mk3.png'
+import mk1 from '../../../public/images/mk1.webp'
+import mk2 from '../../../public/images/mk2.jpg'
+import mk3 from '../../../public/images/mk3.png'
 
 function MechanismTap() {
   const [tab, setTab] = useState<number>(0)

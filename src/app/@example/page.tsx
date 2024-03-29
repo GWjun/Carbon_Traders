@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-import mk1 from '../../public/images/mk1.webp'
-import mk2 from '../../public/images/mk2.jpg'
-import mk3 from '../../public/images/mk3.png'
+import mk1 from '../../../public/images/mk1.webp'
+import mk2 from '../../../public/images/mk2.jpg'
+import mk3 from '../../../public/images/mk3.png'
 
 export default function Example() {
   return (

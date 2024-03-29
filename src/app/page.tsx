@@ -5,10 +5,7 @@ import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-import Example from '#components/Example'
-import Feature from '#components/Feature'
 import Hero from '#components/Hero'
-import Method from '#components/Method'
 
 export default function Page() {
   useEffect(() => {
@@ -20,9 +17,6 @@ export default function Page() {
   return (
     <div>
       <Hero />
-      <Feature />
-      <Example />
-      <Method />
     </div>
   )
 }

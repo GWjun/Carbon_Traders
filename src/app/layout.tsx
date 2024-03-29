@@ -13,8 +13,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  feature,
+  example,
+  method,
 }: {
   children: React.ReactNode
+  feature: React.ReactNode
+  example: React.ReactNode
+  method: React.ReactNode
 }) {
   return (
     <html lang="ko">
@@ -22,6 +28,9 @@ export default function RootLayout({
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Header />
           {children}
+          {feature}
+          {example}
+          {method}
         </div>
       </body>
     </html>
